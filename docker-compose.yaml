@@ -21,3 +21,5 @@ networks:
 # docker compose up -d   
 # if you want start only specified container/service
 # docker compose up -d dev-database -d
+#How to remove contrainers+volumes 
+# docker compose rm dev-database --stop -- force --volumes
