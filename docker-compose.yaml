@@ -1,21 +1,37 @@
 # we  create a docker image from source code.
 version: "1.0"
 services:
-    dev-database:
+    # dev-database:
+    #       image: postgres:15.0
+    #       container_name: dev-database
+    #     # POSTGRES_HOST_AUTH_METHOD: "trust"
+    #       ports: 
+    #           - 5434:5432 #{port in host(myPC)} : {port in container}.
+    #       #environment variables, like db's username and password.
+    #       environment:
+    #               POSTGRES_USER: postgres 
+    #               POSTGRES_PASSWORD: Abc12345678
+    #               POSTGRES_DB: testDB   
+    #       networks:
+    #         - nestjs-network
+      #Create another container for 'TEST'
+       test-database:
           image: postgres:15.0
-          container_name: dev-database
+          container_name: test-database
         # POSTGRES_HOST_AUTH_METHOD: "trust"
           ports: 
-              - 5434:5432 #{port in host(myPC)} : {port in container}.
+              - 5435:5432 #{port in host(myPC)} : {port in container}.
           #environment variables, like db's username and password.
           environment:
                   POSTGRES_USER: postgres 
                   POSTGRES_PASSWORD: Abc12345678
-                  POSTGRES_DB: testDB   
+                  POSTGRES_DB: testDB 
           networks:
             - nestjs-network
+
 networks: 
   nestjs-network:
+
 # Create container, network,..from "docker compose" file:
 # -d deamon/ background mode
 # docker compose up -d   

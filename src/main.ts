@@ -7,6 +7,7 @@ async function bootstrap() {
   const app = await NestFactory.create(AppModule);
  
   // config swagger document API for Development.
+  const PORT = 3000;
   const config = new DocumentBuilder()
     .setTitle("Swagger Documentation")
     .setDescription("Swagger Documentation with API")
@@ -18,6 +19,7 @@ async function bootstrap() {
     SwaggerModule.setup("api",app, document);
 
     app.useGlobalPipes(new ValidationPipe());
-    await app.listen(3000);
+    await app.listen(PORT);
+    console.log(PORT)
 }
 bootstrap();
